@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="center_item">65dp</dimen>
+    <dimen name="other_item">55dp</dimen>
+    <dimen name="center_item_margin_top">0dp</dimen>
+    <dimen name="other_item_margin_top">10dp</dimen>
+    <dimen name="dimen_1dp">1dp</dimen>
+</resources>
