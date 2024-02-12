@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class PhotoAdapter(
     private val imageIds: List<Long>,
@@ -28,10 +29,12 @@ class PhotoAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val imageId = imageIds[position]
 
-        holder.photoImageView.setImageURI(
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI.buildUpon()
-                .appendPath(imageId.toString()).build()
-        )
+        Glide.with(holder.itemView)
+            .load(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI.buildUpon()
+                    .appendPath(imageId.toString()).build()
+            )
+            .into(holder.photoImageView)
 
         holder.itemView.setOnClickListener {
             onItemClick(imageId)
@@ -42,18 +45,18 @@ class PhotoAdapter(
 
         if (position == centerPosition) {
             layoutParams.width =
-                context.resources.getDimensionPixelSize(R.dimen.center_item)
+                context.resources.getDimensionPixelSize(R.dimen.dimen_65dp)
             layoutParams.height =
-                context.resources.getDimensionPixelSize(R.dimen.center_item)
+                context.resources.getDimensionPixelSize(R.dimen.dimen_65dp)
             layoutParams.topMargin =
-                context.resources.getDimensionPixelSize(R.dimen.center_item_margin_top)
+                context.resources.getDimensionPixelSize(R.dimen.dimen_0dp)
         } else {
             layoutParams.width =
-                context.resources.getDimensionPixelSize(R.dimen.other_item)
+                context.resources.getDimensionPixelSize(R.dimen.dimen_55dp)
             layoutParams.height =
-                context.resources.getDimensionPixelSize(R.dimen.other_item)
+                context.resources.getDimensionPixelSize(R.dimen.dimen_55dp)
             layoutParams.topMargin =
-                context.resources.getDimensionPixelSize(R.dimen.other_item_margin_top)
+                context.resources.getDimensionPixelSize(R.dimen.dimen_10dp)
         }
 
         holder.itemView.layoutParams = layoutParams

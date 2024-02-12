@@ -27,9 +27,7 @@ class MainActivity : ComponentActivity() {
 
         previewImageView = findViewById(R.id.previewImageView)
         photosRecyclerView = findViewById(R.id.photosRecyclerView)
-
         loadImagesFromGallery()
-
     }
 
     private fun loadImagesFromGallery() {
